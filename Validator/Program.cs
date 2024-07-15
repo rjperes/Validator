@@ -32,9 +32,7 @@ namespace Validator
 
             var results = new List<ValidationResult>();
 
-            nameof(ValidationAttribute.RequiresValidationContext)
-
-            var isValid = System.ComponentModel.DataAnnotations.Validator.TryValidateObject(data, new ValidationContext(data), results, validateAllProperties: true);
+            //var isValid = System.ComponentModel.DataAnnotations.Validator.TryValidateObject(data, new ValidationContext(data), results, validateAllProperties: true);
 
             var isValidProperty = System.ComponentModel.DataAnnotations.Validator.TryValidateProperty(data.IsEven, new ValidationContext(data) { MemberName = nameof(Data.IsEven) }, results);
 
