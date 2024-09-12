@@ -2,8 +2,15 @@
 
 namespace Validator
 {
+    [MetadataType(Data.DataMetadata)]
     public class Data : IValidatableObject
     {
+        public class Metadata
+        {
+            [Required]
+            public string? Required { get; set; }
+        }
+    
         //[Required]
         public string? Required { get; set; }
 
