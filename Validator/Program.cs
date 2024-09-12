@@ -30,6 +30,8 @@ namespace Validator
                 IsEven = 13.45
             };
 
+            TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Data), typeof(Data.DataMetadata)), typeof(Data));
+            
             var results = new List<ValidationResult>();
 
             //var isValid = System.ComponentModel.DataAnnotations.Validator.TryValidateObject(data, new ValidationContext(data), results, validateAllProperties: true);
