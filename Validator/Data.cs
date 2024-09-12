@@ -2,7 +2,7 @@
 
 namespace Validator
 {
-    [MetadataType(Data.DataMetadata)]
+    [MetadataType(typeof(Data.Metadata))]
     public class Data : IValidatableObject
     {
         public class Metadata

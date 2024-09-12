@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Validator
 {
@@ -30,7 +31,7 @@ namespace Validator
                 IsEven = 13.45
             };
 
-            TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Data), typeof(Data.DataMetadata)), typeof(Data));
+            TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Data), typeof(Data.Metadata)), typeof(Data));
             
             var results = new List<ValidationResult>();
 
