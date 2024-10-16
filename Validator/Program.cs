@@ -31,7 +31,15 @@ namespace Validator
                 IsEven = 13.45
             };
 
-            TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Data), typeof(Data.Metadata)), typeof(Data));
+            var entityType = typeof(Data);
+            var attr = Attribute.GetCustomAttribute(entityType, typeof(MetadataTypeAttribute)) as MetadataTypeAttribute;
+            
+            if (attr != null)
+            {
+                TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(entityType, attr.MetadataClassType), entityType);
+            }
+
+            //TypeDescriptor.AddProviderTransparent(new AssociatedMetadataTypeTypeDescriptionProvider(typeof(Data), typeof(Data.Metadata)), typeof(Data));
             
             var results = new List<ValidationResult>();
 
